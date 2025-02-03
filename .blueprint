@@ -1,0 +1,11 @@
+created:
+    - database/factories/PostFactory.php
+    - database/factories/CommentFactory.php
+    - database/migrations/2025_02_03_235215_create_posts_table.php
+    - database/migrations/2025_02_03_235216_create_comments_table.php
+    - app/Models/Post.php
+    - app/Models/Comment.php
+models:
+    User: { name: string, email: string, email_verified_at: 'timestamp nullable', password: string, remember_token: 'string:100 nullable' }
+    Post: { user_id: id, title: 'string:400', content: 'nullable longtext', published_at: timestamp }
+    Comment: { post_id: id, user_id: id, content: longtext, published_at: timestamp }
