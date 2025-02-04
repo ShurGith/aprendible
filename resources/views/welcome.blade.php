@@ -1,4 +1,4 @@
-<x-layout meta-title="Home"
+<x-layout meta-title="🏡 Home"
           meta-description='Estamos en el home o inicio de la web y esta es la meta-descripción pasada en los props'>
   <h1>Inicio</h1>
   

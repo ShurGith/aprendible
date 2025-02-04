@@ -3,7 +3,7 @@ models:
     user_id: foreign
     title: string:400
     content: nullable longtext
-    published_at: timestamp
+    published_at: timestamp nullable
   Comment:
     post_id: foreign
     user_id: foreign
