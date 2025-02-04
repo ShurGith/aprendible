@@ -9,15 +9,21 @@
   <meta name="description" content="{{ $metaDescription ?? 'Descripción por defecto' }}">
   @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body>
+<body class="grid min-h-screen justify-items-center w-full " style="grid-template-rows: auto 1fr auto">
 {{--@include('components.partials.navigation')--}}
 <x-partials.navigation/>
-{{ $slot }}
-@isset($sidebar)
-  <div id="sidebar">
-    <h2>Este es el SideBar</h2>
-    {{ $sidebar }}
-  </div>
-@endisset
+<div class="w-10/12 bg-gray-100">
+  {{ $slot }}
+  
+  @isset($sidebar)
+    <div id="sidebar">
+      <h2>Este es el SideBar</h2>
+      {{ $sidebar }}
+    </div>
+  
+  @endisset
+</div>
+<x-partials.footer/>
+
 </body>
 </html>

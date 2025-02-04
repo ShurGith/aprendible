@@ -12,6 +12,8 @@
     
     Route::get('/post/{post}', [PostController::class, 'show'])->name('post.show');
     Route::get('/index', [PostController::class, 'index'])->name('posts.index');
+    Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
+    Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
     
     Route::get('/dashboard', function () {
         return view('dashboard');
