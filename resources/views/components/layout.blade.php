@@ -1,4 +1,4 @@
-<!Doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{ $metaTitle ?? 'MetaTitulo por defecto'}}</title>
   <meta name="description" content="{{ $metaDescription ?? 'Descripción por defecto' }}">
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
 {{--@include('components.partials.navigation')--}}

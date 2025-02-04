@@ -1,5 +1,6 @@
 <?php
     
+    use App\Http\Controllers\PostController;
     use App\Http\Controllers\ProfileController;
     use Illuminate\Support\Facades\Route;
     
@@ -9,6 +10,8 @@
     Route::view('blog', 'blog')->name('blog');
     Route::view('nosotros', 'about')->name('about');
     
+    Route::get('/post/{post}', [PostController::class, 'show'])->name('post.show');
+    Route::get('/index', [PostController::class, 'index'])->name('posts.index');
     
     Route::get('/dashboard', function () {
         return view('dashboard');
