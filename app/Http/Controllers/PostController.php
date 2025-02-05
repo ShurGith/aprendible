@@ -35,7 +35,7 @@
         
         public function create()
         {
-            return view('posts.create');
+            return view('posts.create', ['post' => new Post]);
         }
         
         public function edit($post)
