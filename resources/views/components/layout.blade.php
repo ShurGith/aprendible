@@ -1,15 +1,18 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>{{ $metaTitle ?? 'MetaTitulo por defecto'}}</title>
   <meta name="description" content="{{ $metaDescription ?? 'Descripción por defecto' }}">
+  <title>{{ $metaTitle ?? 'MetaTitulo por defecto'}}</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.bunny.net">
+  <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
   @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="grid min-h-screen justify-items-center w-full " style="grid-template-rows: auto 1fr auto">
+<body class="font-[figtree] grid min-h-screen justify-items-center w-full " style="grid-template-rows: auto 1fr auto">
 {{--@include('components.partials.navigation')--}}
 <x-partials.navigation/>
 <div class="w-10/12 bg-gray-100">

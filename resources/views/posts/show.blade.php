@@ -15,4 +15,8 @@
       </div>
     </div>
   </div>
+  <button
+    class="flex justify-center gap-4  mx-auto px-6 py-2 rounded-lg bg-gray-500 text-white  hover:bg-gray-800 transition duration-300 "
+    onclick="history.go(-1);" class="btn-go-back"> ⬅️<p>{{__('Back')}}</p>
+  </button>
 </x-layout>
