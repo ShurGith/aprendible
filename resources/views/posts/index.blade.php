@@ -11,11 +11,14 @@
           @endif
         </div>
         <div class="inline-flex">
-          <a class="border px-2 py-1 rounded-lg bg-blue-500 text-blue-200" href="{{ route('posts.edit', $post->id) }}">Editar</a>
-          <form method="post" action="{{ route('posts.delete', $post) }}">
-            @csrf
-            <button class="border px-2 py-1 rounded-lg bg-red-500 text-red-200">Borrar</button>
-          </form>
+          @auth
+            <a class="border px-2 py-1 rounded-lg bg-blue-500 text-blue-200"
+               href="{{ route('posts.edit', $post->id) }}">Editar</a>
+            <form method="post" action="{{ route('posts.delete', $post) }}">
+              @csrf
+              <button class="cursor-pointer border px-2 py-1 rounded-lg bg-red-500 text-red-200">Borrar</button>
+            </form>
+          @endauth
         </div>
       </div>
     @endforeach

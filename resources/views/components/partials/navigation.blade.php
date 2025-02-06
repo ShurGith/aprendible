@@ -13,8 +13,10 @@
                          :active="request()->routeIs('contact')">{{__('Contact')}}</x-partials.nav-link>
     <x-partials.nav-link href="{{ route('posts.index') }}"
                          :active="request()->routeIs('posts.index')">{{__('Post List')}}</x-partials.nav-link>
-    <x-partials.nav-link href="{{ route('posts.create') }}"
-                         :active="request()->routeIs('posts.create')">{{__('New Post')}}</x-partials.nav-link>
+    @auth
+      <x-partials.nav-link href="{{ route('posts.create') }}"
+                           :active="request()->routeIs('posts.create')">{{__('New Post')}}</x-partials.nav-link>
+    @endauth
   </div>
   <div class="inline-flex justify-center items-center gap-4">
     @if (Route::has('login'))

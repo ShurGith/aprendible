@@ -26,11 +26,16 @@
         {
             $data = $postRequest->all();
             $data['user_id'] = Auth::id() ?? 1;
-            //   dd($data);
-            //$post =
+            if ($data['published_at']) {
+                $data['published_at'] = date('Y-m-d H:i:s');
+            }
+            //dd($data);
+            
             Post::create($data);
-            session()->flash('status', 'Post Creado con título: '.$data['title']);
-            return redirect()->route('posts.index');
+            
+            //session()->flash('status', 'Post Creado con título: '.$data['title']);
+            return redirect()->route('posts.index')
+              ->with('status', 'Post Creado con título: '.$data['title']);
         }
         
         public function create()
@@ -51,8 +56,9 @@
             
             $post->update($data);
             
-            session()->flash('status', 'Post Actualizado con título: '.$data['title']);
-            return redirect()->route('posts.index');
+            //  session()->flash('status', 'Post Actualizado con título: '.$data['title']);
+            return redirect()->route('posts.index')
+              ->with('status', 'Post Actualizado con título: '.$data['title']);
         }
         
         public function destroy(Post $post): RedirectResponse
