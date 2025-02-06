@@ -16,21 +16,22 @@
   @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="font-sans antialiased">
-<div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+<div class="min-h-screen bg-gray-100 dark:bg-gray-900 relative overflow-hidden">
   
   @include('layouts.navigation')
+  
   @session('status')
-  <div class="flex  place-self-end w-2/6">
+  <div class="flex place-self-end w-2/6 ">
     <div id="div-sesion"
-         class="absolute top-12 opacity-0 translate-x-full mt-2 bg-green-600 text-green-200 py-2 w-2/3  transition duration-1000 pl-4">
+         class="absolute top-32 opacity-0 translate-x-full mt-2 bg-green-600 text-green-200 py-4 w-2/3  transition duration-1000 pl-4">
       {{ $value }}
     </div>
   </div>
   @endsession
   @session('success')
-  <div class="flex  place-self-end w-2/6">
+  <div class="flex place-self-end w-2/6">
     <div id="div-sesion"
-         class="absolute top-12 opacity-0 translate-x-full mt-2 bg-red-600 text-red-100 py-2 w-2/3  transition duration-1000 pl-4">
+         class="absolute top-32 opacity-0 translate-x-full mt-2 bg-red-600 text-red-100 py-4 w-2/3  transition duration-1000 pl-4">
       {{ $value }}
     </div>
   </div>
