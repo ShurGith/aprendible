@@ -9,21 +9,15 @@
     
     class PostController extends Controller
     {
-        public function index($esAdmin = false)
+        public function index()
         {
-            //  dd(url()->current(), $esAdmin);
             $posts = Post::paginate(10);
-            
-            if ($esAdmin) {
-                return view('posts.index-admin', ['posts' => $posts]);
-            } else {
-                return view('posts.index', compact('posts'));
-            }
+            return view(str_contains(url()->current(), 'index-admin') ? 'posts.index-admin' : 'posts.index',
+              ['posts' => $posts]);
         }
         
         public function show(Post $post)
         {
-            
             return view('posts.show', compact('post'));
         }
         
@@ -34,12 +28,9 @@
             if ($data['published_at']) {
                 $data['published_at'] = date('Y-m-d H:i:s');
             }
-            //dd($data);
-            
             Post::create($data);
-            
             //session()->flash('status', 'Post Creado con título: '.$data['title']);
-            return redirect()->route('index-admin', true)
+            return redirect()->route('index-admin')
               ->with('status', 'Post Creado con título: '.$data['title']);
         }
         
@@ -65,7 +56,7 @@
             $post->update($data);
             
             //  session()->flash('status', 'Post Actualizado con título: '.$data['title']);
-            return redirect()->route('index-admin', true)
+            return redirect()->route('index-admin')
               ->with('status', 'Post Actualizado con título: '.$data['title']);
         }
         
@@ -74,7 +65,7 @@
             $titulo = $post->title;
             $post->delete();
             // session()->flash('status', 'Post Eliminado con título: '.$titulo);
-            return redirect()->route('index-admin', true)
+            return redirect()->route('index-admin')
               ->with('success', 'Post Eliminado con título: '.$titulo);
         }
     }
