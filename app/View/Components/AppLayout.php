@@ -1,17 +1,25 @@
 <?php
-
-namespace App\View\Components;
-
-use Illuminate\View\Component;
-use Illuminate\View\View;
-
-class AppLayout extends Component
-{
-    /**
-     * Get the view / contents that represents the component.
-     */
-    public function render(): View
+    
+    namespace App\View\Components;
+    
+    use Illuminate\View\Component;
+    use Illuminate\View\View;
+    
+    class AppLayout extends Component
     {
-        return view('layouts.app');
+        /*public $metaTitle = "Titulo por Defecto";
+        public $metaDescription = "Descripción por defecto";*/
+        
+        public function __construct(
+          public string $metaTitle = "Titulo por Defecto",
+          public string $metaDescription = "Descripción por defecto"
+        ) {
+            $this->metaTitle = $metaTitle;
+            $this->metaDescription = $metaDescription;
+        }
+        
+        public function render(): View
+        {
+            return view('layouts.app');
+        }
     }
-}

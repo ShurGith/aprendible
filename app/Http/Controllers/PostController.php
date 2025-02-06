@@ -9,11 +9,16 @@
     
     class PostController extends Controller
     {
-        public function index()
+        public function index($esAdmin = false)
         {
+            //  dd(url()->current(), $esAdmin);
             $posts = Post::paginate(10);
             
-            return view('posts.index', compact('posts'));
+            if ($esAdmin) {
+                return view('posts.index-admin', ['posts' => $posts]);
+            } else {
+                return view('posts.index', compact('posts'));
+            }
         }
         
         public function show(Post $post)
@@ -54,6 +59,9 @@
             $data = $postRequest->all();
             $data['user_id'] = Auth::id() ?? 1;
             
+            if ($data['published_at']) {
+                $data['published_at'] = date('Y-m-d H:i:s');
+            }
             $post->update($data);
             
             //  session()->flash('status', 'Post Actualizado con título: '.$data['title']);

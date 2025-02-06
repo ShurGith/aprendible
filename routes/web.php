@@ -20,6 +20,7 @@
         Route::post('/posts/{post}', [PostController::class, 'destroy'])->name('posts.delete');
         Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
         
+        Route::get('/index-admin/{esAdmin}', [PostController::class, 'index'])->name('index-admin');
         Route::view('/dashboard', 'dashboard')->name('dashboard');
         
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
