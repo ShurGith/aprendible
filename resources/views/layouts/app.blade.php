@@ -17,8 +17,24 @@
 </head>
 <body class="font-sans antialiased">
 <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-  @include('layouts.navigation')
   
+  @include('layouts.navigation')
+  @session('status')
+  <div class="flex  place-self-end w-2/6">
+    <div id="div-sesion"
+         class="absolute top-12 opacity-0 translate-x-full mt-2 bg-green-600 text-green-200 py-2 w-2/3  transition duration-1000 pl-4">
+      {{ $value }}
+    </div>
+  </div>
+  @endsession
+  @session('success')
+  <div class="flex  place-self-end w-2/6">
+    <div id="div-sesion"
+         class="absolute top-12 opacity-0 translate-x-full mt-2 bg-red-600 text-red-100 py-2 w-2/3  transition duration-1000 pl-4">
+      {{ $value }}
+    </div>
+  </div>
+  @endsession
   <!-- Page Heading -->
   @isset($header)
     <header class="bg-white dark:bg-gray-800 shadow">
@@ -33,5 +49,17 @@
     {{ $slot }}
   </main>
 </div>
+<script>
+	const divSesion = document.getElementById('div-sesion')
+	if (divSesion) {
+		setTimeout(() => {
+			divSesion.classList.remove('translate-x-full', 'opacity-0')
+		}, 1000)
+		setTimeout(() => {
+			divSesion.classList.add('translate-x-full', 'opacity-0')
+		}, 5000)
+		
+	}
+</script>
 </body>
 </html>

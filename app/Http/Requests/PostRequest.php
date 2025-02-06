@@ -25,7 +25,6 @@
             return [
               'title' => 'required|max:255|string|min:5',
               'content' => 'required|string|min:5',
-              'published_at' => 'bolean',
             ];
         }
     }

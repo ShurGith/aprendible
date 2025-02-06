@@ -39,7 +39,7 @@
             Post::create($data);
             
             //session()->flash('status', 'Post Creado con título: '.$data['title']);
-            return redirect()->route('posts.index')
+            return redirect()->route('index-admin', true)
               ->with('status', 'Post Creado con título: '.$data['title']);
         }
         
@@ -65,7 +65,7 @@
             $post->update($data);
             
             //  session()->flash('status', 'Post Actualizado con título: '.$data['title']);
-            return redirect()->route('posts.index')
+            return redirect()->route('index-admin', true)
               ->with('status', 'Post Actualizado con título: '.$data['title']);
         }
         
@@ -74,7 +74,7 @@
             $titulo = $post->title;
             $post->delete();
             // session()->flash('status', 'Post Eliminado con título: '.$titulo);
-            return redirect()->route('posts.index')
+            return redirect()->route('index-admin', true)
               ->with('success', 'Post Eliminado con título: '.$titulo);
         }
     }

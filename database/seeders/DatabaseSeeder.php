@@ -24,6 +24,7 @@
               'email' => 'esnola@gmail.com',
               'password' => Hash::make('12345678')
             ]);
+            
             User::factory(10)->create();
             
             Post::factory(15)->create();
