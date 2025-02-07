@@ -11,7 +11,13 @@
     {
         public function index()
         {
-            $posts = Post::paginate(10);
+            if (str_contains(url()->current(), 'index-admin')) {
+                $posts = Post::paginate(10);
+            } else {
+                $posts = Post::where('published_at', '<', date('Y-m-d'))->paginate(10);
+                //     dd($posts);
+            }
+            
             return view(str_contains(url()->current(), 'index-admin') ? 'posts.index-admin' : 'posts.index',
               ['posts' => $posts]);
         }

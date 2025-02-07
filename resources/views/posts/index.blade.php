@@ -16,4 +16,3 @@
   </div>
   {{ $posts->links() }}
 </x-layout>
-index.blade.php

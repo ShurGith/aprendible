@@ -18,6 +18,13 @@
                   @if($post->comments->count())
                     <p class="text-xs"> - {{ $post->comments->count()}}
                       comentario{{$post->comments->count() > 1 ? 's':''}} </p>
+                    @if($post->published_at)
+                      <p
+                        class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">  {{ date('d-m-Y',$post->published_at) }}</p>
+                    @else
+                      <p
+                        class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/20">{{ __('Not Published') }}</p>
+                    @endif
                   @endif
                 </div>
                 <div class="inline-flex">

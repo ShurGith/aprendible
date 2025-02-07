@@ -34,8 +34,7 @@
         
         <h6 class="text-gray-400 text-sm">{{ Auth::user()->name }}</h6>
         <img class="size-10 rounded-full"
-             src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-             alt="">
+             src="{{ Auth::user()->avatar }}">
       @else
         <x-partials.nav-link href="{{ route('login') }}">{{__('Login')}}</x-partials.nav-link>
         @if (Route::has('register'))
